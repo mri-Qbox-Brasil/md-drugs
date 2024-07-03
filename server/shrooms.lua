@@ -19,12 +19,11 @@ function shroomsCooldown(loc)
     end)
 end
 
-
 RegisterNetEvent("shrooms:pickupCane")
 AddEventHandler("shrooms:pickupCane", function(loc)
-    local chance = math.random(1,10)
+    local chance = math.random(1, 10)
     local playerPed = GetPlayerPed(source)
-	if CheckDist(source, playerPed, Config.shrooms[loc].location) then return end
+    if CheckDist(source, playerPed, Config.shrooms[loc].location) then return end
     if not Config.shrooms[loc].taken then
         Config.shrooms[loc].taken = true
         GlobalState.shrooms = Config.shrooms
@@ -36,12 +35,11 @@ AddEventHandler("shrooms:pickupCane", function(loc)
 end)
 
 QBCore.Functions.CreateUseableItem('shrooms', function(source, item)
-local src = source
-local Player = QBCore.Functions.GetPlayer(src)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
 
-if TriggerClientEvent('md-drugs:client:takeshrooms', src, item.name) then
-	Player.Functions.RemoveItem('shrooms', 1)
-    TriggerClientEvent("QBCore:Notify", src, Lang.Shrooms.trip, 'success')
-	end
+    if TriggerClientEvent('md-drugs:client:takeshrooms', src, item.name) then
+        Player.Functions.RemoveItem('shrooms', 1)
+        TriggerClientEvent("QBCore:Notify", src, Lang.Shrooms.trip, 'success')
+    end
 end)
-

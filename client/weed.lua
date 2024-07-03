@@ -8,7 +8,7 @@ function LoadModel(hash)
     while not HasModelLoaded(hash) do
         Wait(3000)
     end
-end 
+end
 
 RegisterNetEvent('weed:respawnCane', function(loc)
     local v = GlobalState.WeedPlant[loc]
@@ -20,7 +20,7 @@ RegisterNetEvent('weed:respawnCane', function(loc)
         FreezeEntityPosition(WeedPlant[loc], true)
         SetEntityHeading(WeedPlant[loc], v.heading)
          exports['qb-target']:AddTargetEntity(WeedPlant[loc], {
-            options = { 
+            options = {
 				{
                     icon = "fas fa-hand",
                     label = "Pick Weed",
@@ -55,7 +55,7 @@ RegisterNetEvent("weed:init", function()
             FreezeEntityPosition(WeedPlant[k], true)
             SetEntityHeading(WeedPlant[k], v.heading)
             exports['qb-target']:AddTargetEntity(WeedPlant[k], {
-                options = { 
+                options = {
 					{
                         icon = "fas fa-hand",
                         label = "Pick Weed",
@@ -87,7 +87,7 @@ AddEventHandler('onResourceStart', function(resource)
      LoadModel('bkr_prop_weed_lrg_01b')
      TriggerEvent('weed:init')
  end)
- 
+
 AddEventHandler('onResourceStop', function(resourceName)
     if GetCurrentResourceName() == resourceName then
         SetModelAsNoLongerNeeded(GetHashKey('bkr_prop_weed_lrg_01b'))
@@ -137,7 +137,7 @@ exports['qb-target']:AddBoxZone("weeddry"..k,v,1.5, 1.75, {name = "weeddry"..k,h
 									if  QBCore.Functions.GetPlayerData().job.name == Config.weedjob then
 										return true end
 								else
-								return true end end,										
+								return true end end,
 						}
 					}
 					local optionsox = {
@@ -154,7 +154,7 @@ exports['qb-target']:AddBoxZone("weeddry"..k,v,1.5, 1.75, {name = "weeddry"..k,h
 									if  QBCore.Functions.GetPlayerData().job.name == Config.weedjob then
 										return true end
 								else
-								return true end end,										
+								return true end end,
 						}
 					}
 					if Config.oxtarget then
@@ -167,7 +167,7 @@ exports['qb-target']:AddBoxZone("weeddry"..k,v,1.5, 1.75, {name = "weeddry"..k,h
 			canInteract = function()
 			if Config.Joblock then
 				if  QBCore.Functions.GetPlayerData().job.name == Config.weedjob then
-					if drying == false then 
+					if drying == false then
 					return true end end
 			else
 			return true end end,
@@ -180,7 +180,7 @@ exports['qb-target']:AddBoxZone("teleinweed",Config.Telein,1.5, 1.75, {name = "t
 		{ name = 'teleout', icon = "fas fa-sign-in-alt", label = "Enter Building", distance = 2.0,
 			action = function()
 				SetEntityCoords(PlayerPedId(),Config.Teleout)
-				
+
 			end,
 			canInteract = function()
 			if Config.Joblock then
@@ -189,7 +189,7 @@ exports['qb-target']:AddBoxZone("teleinweed",Config.Telein,1.5, 1.75, {name = "t
 			else
 			return true end end,
 		},
-	},	
+	},
 })
 exports['qb-target']:AddBoxZone("teleinweedout",Config.Teleout,1.5, 1.75, { name = "teleinweedout",heading = 11.0,debugPoly = false,minZ = Config.Teleout.z-2,maxZ = Config.Teleout.z+2,}, {
 options = {
@@ -204,7 +204,7 @@ options = {
 			else
 			return true end end,
 		},
-	},	
+	},
 })
 exports['qb-target']:AddBoxZone("MakeButter",Config.MakeButter,1.5, 1.75, {name = "MakeButter",heading = 11.0,debugPoly = false,minZ = Config.MakeButter.z-2,maxZ = Config.MakeButter.z+2,}, {
 options = {
@@ -216,7 +216,7 @@ options = {
 				if not ItemCheck('mdbutter') and not ItemCheck('grindedweed') then return end
 				if not minigame(2, 8) then return end
 				if not progressbar(Lang.Weed.canna, 4000, 'uncuff') then return end
-				TriggerServerEvent("md-drugs:server:makebutter")       
+				TriggerServerEvent("md-drugs:server:makebutter")
 			end,
 			canInteract = function()
 			if Config.Joblock then
@@ -234,8 +234,8 @@ options = {
 				if not ItemCheck('cannabutter') and not ItemCheck('flour') and not ItemCheck('chocolate') then return end
 				if not minigame(2, 8) then return end
 				if not progressbar(Lang.Weed.brown, 4000, 'uncuff') then return end
-				TriggerServerEvent("md-drugs:server:makebrownies")       
-				
+				TriggerServerEvent("md-drugs:server:makebrownies")
+
 			end,
 			canInteract = function()
 			if Config.Joblock then
@@ -253,7 +253,7 @@ options = {
 				if not ItemCheck('cannabutter') and not ItemCheck('flour') then return end
 				if not minigame(2, 8) then return end
 				if not progressbar(Lang.Weed.cook, 4000, 'uncuff') then return end
-				TriggerServerEvent("md-drugs:server:makecookies")       
+				TriggerServerEvent("md-drugs:server:makecookies")
 			end,
 			canInteract = function()
 			if Config.Joblock then
@@ -271,7 +271,7 @@ options = {
 				if not ItemCheck('cannabutter') and not ItemCheck('chocolate') then return end
 				if not minigame(2, 8) then return end
 				if not progressbar(Lang.Weed.choc, 4000, 'uncuff') then return end
-				TriggerServerEvent("md-drugs:server:makechocolate")       
+				TriggerServerEvent("md-drugs:server:makechocolate")
 			end,
 			canInteract = function()
 			if Config.Joblock then
@@ -289,7 +289,7 @@ options = {
 				if not ItemCheck('cannabutter') and not ItemCheck('flour') then return end
 				if not minigame(2, 8) then return end
 				if not progressbar(Lang.Weed.muff, 4000, 'uncuff') then return end
-				TriggerServerEvent("md-drugs:server:makemuffin")       
+				TriggerServerEvent("md-drugs:server:makemuffin")
 			end,
 			canInteract = function()
 			if Config.Joblock then
@@ -298,7 +298,7 @@ options = {
 			else
 			return true end end,
 		},
-	},	
+	},
 })
 exports['qb-target']:AddBoxZone("makeoil",Config.MakeOil,1.5, 1.75, {name = "makeoil",heading = 11.0,debugPoly = false,minZ = Config.MakeOil.z-2,maxZ = Config.MakeOil.z+2,}, {
 options = {
@@ -308,7 +308,7 @@ options = {
 			label = "Make Oil",
 			action = function()
 				if not ItemCheck('butane') and not ItemCheck('grindedweed') then return end
-				if not minigame(2, 8) then 
+				if not minigame(2, 8) then
 					local explosion = math.random(1,100)
 						local loc = GetEntityCoords(PlayerPedId())
 						if explosion <= 99 then
@@ -317,16 +317,16 @@ options = {
 							Notify(Lang.Weed.stovehot, "error")
 							Wait(1000 * 30)
 							exploded = nil
-						end	
+						end
 				return end
 				if not progressbar(Lang.Weed.shat, 4000, 'uncuff') then return end
-				TriggerServerEvent("md-drugs:server:makeoil")       			
+				TriggerServerEvent("md-drugs:server:makeoil")
 			end,
 			canInteract = function()
 			if exploded == nil then return true end
 			end,
 		},
-	},	
+	},
 })
 end)
 
@@ -375,11 +375,11 @@ end)
 RegisterNetEvent("md-drugs:client:grind", function()
 	if not progressbar("grinding", 4000, 'uncuff') then return end
 end)
-	
+
 
 
 RegisterNetEvent("md-drugs:client:dodabs", function()
-TriggerEvent('animations:client:EmoteCommandStart', {'bong2'}) 
+TriggerEvent('animations:client:EmoteCommandStart', {'bong2'})
 AlienEffect()
 end)
 
@@ -393,12 +393,12 @@ local current = "u_m_m_jesus_01"
     FreezeEntityPosition(WeedGuy, true)
     SetEntityInvincible(WeedGuy, true)
 	SetEntityHeading(WeedGuy, 270.0)
-	exports['qb-target']:AddTargetEntity(WeedGuy, { 
+	exports['qb-target']:AddTargetEntity(WeedGuy, {
         options = {
             {label = "Weed Shop",icon = "fas fa-eye",action = function() lib.showContext('WeedShop')end},
         }
 		})
-for k, v in pairs (Config.Weed.items) do 
+for k, v in pairs (Config.Weed.items) do
 	WeedShop[#WeedShop + 1] = {
 		icon =  GetImage(v.name),
 		 title = QBCore.Shared.Items[v.name].label,
