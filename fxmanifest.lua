@@ -1,34 +1,39 @@
-name "mustache-drugs"
-author "mustache_dom"
-description "drugs by mustache dom"
 fx_version "cerulean"
 game "gta5"
-version  '3.5.4'
-client_scripts {
-	'client/**.lua',
-	'@PolyZone/client.lua',
-   	 '@PolyZone/CircleZone.lua',
+lua54 'yes'
+
+description "drugs by mustache dom"
+author "mriQbox"
+name "md-drugs"
+credits "mustache_dom"
+
+version '3.5.4'
+
+ox_lib "locale"
+
+shared_scripts {
+    '@ox_lib/init.lua',
+    'shared/*.lua',
 }
 
 server_scripts {
-    'server/**.lua',
-	'@oxmysql/lib/MySQL.lua',
-	
+    '@oxmysql/lib/MySQL.lua',
+    'server/*.lua',
 }
 
-shared_scripts {
-	'@ox_lib/init.lua',
-	'shared/**.lua',
-
+client_scripts {
+    '@PolyZone/client.lua',
+    '@PolyZone/CircleZone.lua',
+    'client/*.lua',
 }
 
+dependencies {
+    'bob74_ipl'
+}
 
-lua54 'yes'
-
-
-dependency 'bob74_ipl'
 files {
-	'stream/mushroom.ytyp'
+    'stream/mushroom.ytyp',
+    'locales/*.json'
 }
 
 data_file 'DLC_ITYP_REQUEST' 'stream/mushroom.ytyp'
